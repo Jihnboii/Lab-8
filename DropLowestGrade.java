@@ -28,7 +28,7 @@ class DropLowestGrade
     {
         Scanner input = new Scanner(System.in);
         System.out.print("Test #  " + ++c + ": ");
-        testScores[r][c] = input.nextInt();
+        testScores[r][c-1] = input.nextInt();
     }
     
     public static void displayStudentGradeReport()
