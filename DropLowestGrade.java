@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 class DropLowestGrade
@@ -26,9 +25,16 @@ class DropLowestGrade
     }
     public static void getstudentTestScores(int[][] testScores, int r, int c)
     {
+    	final int MAXSCORE = 100;
+    	final int MINSCORE = 0;
         Scanner input = new Scanner(System.in);
         System.out.print("Test #  " + ++c + ": ");
         testScores[r][c-1] = input.nextInt();
+        while (testScores[r][c-1] < MINSCORE || testScores[r][c-1] > MAXSCORE)
+        {
+        	System.out.print("Error. You must enter a score in the range 0-100: ");
+            testScores[r][c-1] = input.nextInt();
+        }
     }
     public static double calculateAverageGrade(int[][] testScores, int r)
     {
