@@ -1,4 +1,3 @@
-package javaprojects;
 
 import java.util.Scanner;
 
@@ -7,6 +6,7 @@ class DropLowestGrade
     public static void main(String[] args)
     {
         final int ARRAYSIZE = 5;
+        double average;
         String[] studentNames = {"Ann", "Bob", "Cara", "Don", "Eve"};
         int[][] studentGrades = new int[ARRAYSIZE][ARRAYSIZE];
         final int[] NEW_STUDENT_GRADES = new int[ARRAYSIZE];
@@ -17,11 +17,11 @@ class DropLowestGrade
             {
                 getstudentTestScores(studentGrades, row, column);
             }
-            //average = calculateAverageGrade();
+            average = calculateAverageGrade(studentGrades, row);
             //findLowestGrade()
             //removeLowestGrade()
             //assignLetterGrade ();
-            //displayStudentGradeReport()
+            displayStudentGradeReport(average);
         }
     }
     public static void getstudentTestScores(int[][] testScores, int r, int c)
@@ -30,9 +30,21 @@ class DropLowestGrade
         System.out.print("Test #  " + ++c + ": ");
         testScores[r][c-1] = input.nextInt();
     }
-    
-    public static void displayStudentGradeReport()
+    public static double calculateAverageGrade(int[][] testScores, int r)
     {
-        
+    	double avg = 0;
+    	double sum = 0;
+    	int scoresAmount = 5;
+    	for (int i = 0; i < testScores.length; i++)
+    	{
+    		sum += testScores[r][i];
+    	}
+    	avg = sum / scoresAmount;
+    	return avg;
+    }
+    
+    public static void displayStudentGradeReport(double avg)
+    {
+        System.out.println("The average: " + avg);
     }
 }
