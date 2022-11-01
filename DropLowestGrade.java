@@ -51,6 +51,8 @@ class DropLowestGrade
     
     public static void displayStudentGradeReport(double avg)
     {
-        System.out.println("The average: " + avg);
+        System.out.printf("%s %s %s\n", "                                                                                  ", "Before Drop", "                           After Drop");
+        System.out.printf("%12s %12s %12s %12s %12s %12s %12s %12s %12s %12s %12s\n","Student name", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Average", "Grade", "Lowest", "Average", "Grade");
+        System.out.println(avg);
     }
 }
